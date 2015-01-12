@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3BF6E275-FF92-4566-B8E9-03B923AA22E9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DeltaShoppe.LinkedInClient</RootNamespace>
+    <AssemblyName>DeltaShoppe.LinkedInClient</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.7\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Api\Contracts\ILinkedInConnections.cs" />
+    <Compile Include="Api\Contracts\ILinkedInManager.cs" />
+    <Compile Include="Api\Contracts\ILinkedInMessages.cs" />
+    <Compile Include="Api\Contracts\ILinkedInProfile.cs" />
+    <Compile Include="Authentication\CallbackParams.cs" />
+    <Compile Include="Api\LinkedInApi.cs" />
+    <Compile Include="JsonDto\BasicProfile.cs" />
+    <Compile Include="JsonDto\FullProfile\Language.cs" />
+    <Compile Include="JsonDto\FullProfile\Recommendation.cs" />
+    <Compile Include="JsonDto\FullProfile\Skill.cs" />
+    <Compile Include="JsonDto\JsonList.cs" />
+    <Compile Include="JsonDto\Company.cs" />
+    <Compile Include="JsonDto\FullProfile\FullProfile.cs" />
+    <Compile Include="JsonDto\FullProfile\Education.cs" />
+    <Compile Include="JsonDto\JsonKeyValue.cs" />
+    <Compile Include="JsonDto\LinkedInDate.cs" />
+    <Compile Include="JsonDto\Location.cs" />
+    <Compile Include="JsonDto\Position.cs" />
+    <Compile Include="JsonDto\PositionList.cs" />
+    <Compile Include="Authentication\LinkedInAuthenticator.cs" />
+    <Compile Include="Api\LinkedInConnections.cs" />
+    <Compile Include="JsonDto\Messages\Message.cs" />
+    <Compile Include="LinkedInConfiguration.cs" />
+    <Compile Include="Api\ApiBase.cs" />
+    <Compile Include="Authentication\AccessTokenDetails.cs" />
+    <Compile Include="Authentication\LinkedInAuthenticationPath.cs" />
+    <Compile Include="Api\LinkedInMessages.cs" />
+    <Compile Include="Api\LinkedInProfile.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
