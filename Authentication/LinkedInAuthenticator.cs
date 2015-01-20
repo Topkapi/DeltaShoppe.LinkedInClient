@@ -1,15 +1,10 @@
 ﻿using System;
 using System.Net.Http;
+using DeltaShoppe.LinkedInClient.Api.Contracts;
 using Newtonsoft.Json.Linq;
 
 namespace DeltaShoppe.LinkedInClient.Authentication
 {
-    public interface ILinkedInAuthenticator
-    {
-        AccessTokenDetails GetAccessToken(string code);
-        LinkedInAuthenticationPath GetAuthenticationPath();
-    }
-
     public class LinkedInAuthenticator : HttpClient, ILinkedInAuthenticator
     {
         private const string UrlToGetAuthenticationCode =
@@ -24,7 +19,9 @@ namespace DeltaShoppe.LinkedInClient.Authentication
             DefaultRequestHeaders.Add("x-li-format", "json");
         }
 
-        public AccessTokenDetails GetAccessToken(string code)
+        public AccessTokenDetails AccessTokenDetails { get; set; }
+
+        public AccessTokenDetails FetchAccessToken(string code)
         {
             var config = LinkedInConfiguration.Instance;
 
@@ -45,11 +42,12 @@ namespace DeltaShoppe.LinkedInClient.Authentication
             }).Wait();
 
             dynamic deserialized = JToken.Parse(content);
-            return new AccessTokenDetails
+            AccessTokenDetails = new AccessTokenDetails
             {
                 AccessToken = deserialized.access_token,
                 ExpiresOn = DateTime.Now.AddSeconds(((int) deserialized.expires_in))
             };
+            return AccessTokenDetails;
         }
 
         public LinkedInAuthenticationPath GetAuthenticationPath()

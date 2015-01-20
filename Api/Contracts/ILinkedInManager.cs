@@ -6,10 +6,11 @@ namespace DeltaShoppe.LinkedInClient.Api.Contracts
     /// </summary>
     public interface ILinkedInManager
     {
-        ILinkedInProfile Profile { get; set; }
+        ILinkedInAuthenticator Authenticator { get; }
+        ILinkedInProfile Profile { get; }
 
-        ILinkedInConnections Connections { get; set; }
+        ILinkedInConnections Connections { get; }
 
-        ILinkedInMessages Messages { get; set; }
+        ILinkedInMessages Messages { get; }
     }
 }

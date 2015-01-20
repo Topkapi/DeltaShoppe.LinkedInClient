@@ -9,7 +9,7 @@ namespace DeltaShoppe.LinkedInClient.Api
 {
     public class LinkedInMessages : ApiBase, ILinkedInMessages
     {
-        public LinkedInMessages(string accessToken) : base(accessToken)
+        public LinkedInMessages(ILinkedInAuthenticator authenticator) : base(authenticator)
         {
         }
 

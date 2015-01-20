@@ -6,7 +6,7 @@ namespace DeltaShoppe.LinkedInClient.Api
 {
     public class LinkedInProfile : ApiBase, ILinkedInProfile
     {
-        public LinkedInProfile(string accessToken) : base(accessToken)
+        public LinkedInProfile(ILinkedInAuthenticator authenticator) : base(authenticator)
         {
         }
 

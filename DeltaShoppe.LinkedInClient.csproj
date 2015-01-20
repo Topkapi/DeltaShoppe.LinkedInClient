@@ -50,7 +50,8 @@
     <Compile Include="Api\Contracts\ILinkedInMessages.cs" />
     <Compile Include="Api\Contracts\ILinkedInProfile.cs" />
     <Compile Include="Authentication\CallbackParams.cs" />
-    <Compile Include="Api\LinkedInApi.cs" />
+    <Compile Include="Api\LinkedInManager.cs" />
+    <Compile Include="Api\Contracts\ILinkedInAuthenticator.cs" />
     <Compile Include="JsonDto\BasicProfile.cs" />
     <Compile Include="JsonDto\FullProfile\Language.cs" />
     <Compile Include="JsonDto\FullProfile\Recommendation.cs" />
